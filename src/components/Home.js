@@ -1,9 +1,19 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
+import HeroSection from './HeroSection';
+import TopicGrid from './TopicGrid';
 
 const Home = () => {
+  const topics = useLoaderData();
+  const { status, data } = topics;
+
+
   return (
     <div>
-      <h1>Home</h1>
+      <HeroSection></HeroSection>
+      {
+        data.map(item => <TopicGrid props={item} key={item.id}></TopicGrid>)
+      }
     </div>
   );
 };

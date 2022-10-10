@@ -1,5 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
+import Home from "../components/Home";
+import Topics from "../components/Topics";
 import Main from "../layouts/Main";
+import { QuizTopic } from "../loader/QuizTopic";
 
 export const route = createBrowserRouter([
   {
@@ -8,11 +11,21 @@ export const route = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <div>Home</div>
+        element: <Home></Home>,
+        loader: QuizTopic
+      },
+      {
+        path: 'topics',
+        element: <div>Topics</div>,
+      },
+      {
+        path: 'topics/:id',
+        element: <div>Singe Topic</div>,
+        loader: ({ params }) => console.log(params)
       },
       {
         path: 'blog',
-        element: <div>Blog</div>
+        element: <Topics></Topics>
       },
       {
         path: '*',
