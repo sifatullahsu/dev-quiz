@@ -95,6 +95,7 @@ body {
   border-radius: 5px;
 }
 
+.que-options.active,
 .que-options:hover {
   background: rgb(55 48 163);
   border-color: rgb(55 48 163);

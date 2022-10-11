@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const QuizOptions = ({ index, queId, option, handleQuizCorrect, correctAnswer }) => {
+const QuizOptions = ({ index, queId, option, handleQuizCorrect, isAnswered }) => {
 
   const newIndex = index + 1;
+  const [active, setActive] = useState(false);
+
+  const handleButton = () => {
+    if (!active && !isAnswered) {
+      handleQuizCorrect(queId, newIndex, option);
+      setActive(!active);
+    }
+  }
 
   return (
-    <div onClick={() => handleQuizCorrect(queId, newIndex, option)} className='que-options'>{option}</div>
+    <div onClick={() => {
+      handleButton();
+    }}
+      className={`que-options ${active ? 'active' : ''}`}
+    >{option}</div>
   );
 };
 

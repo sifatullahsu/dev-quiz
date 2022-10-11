@@ -7,6 +7,13 @@ const Quiz = () => {
   const { id, logo, name, questions, total } = quiz.data;
 
   const [start, setStart] = useState(false);
+  const [correctCount, setCorrectCount] = useState(0);
+
+  const handleCorrectCount = () => {
+    setCorrectCount(correctCount + 1);
+  }
+
+
   let queNo = 0;
 
   return (
@@ -20,21 +27,41 @@ const Quiz = () => {
           <div className='min-h-screen'>
             <img src={logo} alt="" className='w-14 bg-indigo-800 rounded' />
             <h2 className='text-4xl font-semibold mt-3'>{name}</h2>
-            <p className=''>Total Question: {total}</p>
-            <button onClick={() => setStart(!start)} className='py-2 px-5 bg-indigo-800 rounded text-white' style={{ marginTop: '50px' }}>Click Me</button>
+            <p>Total Question: {total}</p>
+            <button
+              onClick={() => setStart(!start)}
+              className='py-2 px-5 bg-indigo-800 rounded text-white'
+              style={{ marginTop: '50px' }}
+            >Click Me</button>
           </div>
         }
         {
           start &&
           <div>
-            <h2>Quiz of {name}</h2>
-            {questions.map(que => <QuizGrid key={que.id} props={que} queNo={queNo = queNo + 1}></QuizGrid>)}
+            <div className='sticky top-0 py-3 bg-white z-10 border-b-2 border-solid border-gray-300'>
+              <h2 className='text-4xl font-semibold'>Quiz of {name}</h2>
+              <p className='pt-2'>Correct Answer {correctCount}</p>
+            </div>
+            {
+              questions.map(que => <QuizGrid
+                key={que.id}
+                props={que}
+                queNo={queNo = queNo + 1}
+                handleCorrectCount={handleCorrectCount}
+              ></QuizGrid>)
+            }
           </div>
         }
         {
           start &&
           <div className='text-center pt-8'>
-            <button onClick={() => setStart(!start)} className='py-2 px-5 bg-indigo-800 rounded text-white'>Finish</button>
+            <button
+              onClick={() => {
+                setStart(!start);
+                setCorrectCount(0);
+              }}
+              className='py-2 px-5 bg-indigo-800 rounded text-white'
+            >Finish</button>
           </div>
         }
       </div>

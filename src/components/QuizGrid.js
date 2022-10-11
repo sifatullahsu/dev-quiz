@@ -5,36 +5,24 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import QuizOptions from './QuizOptions';
 
-const QuizGrid = ({ props, queNo }) => {
+const QuizGrid = ({ props, queNo, handleCorrectCount }) => {
   const { id, question, options, correctAnswer } = props;
 
+  const [isAnswered, setIsAnswered] = useState(false);
   const [hint, setHint] = useState(false);
 
-  const hintFunctionality = () => {
-    if (!hint) {
-      setHint(!hint);
-    }
-  }
-
-
-
-  const [answered, setAnswered] = useState([]);
 
   const handleQuizCorrect = (queId, index, option) => {
+    setIsAnswered(true);
 
-    if (!answered[queId]) {
-      if (option === correctAnswer) {
-        toast("Correct!")
-      }
-      else {
-        toast("Incorrect!")
-      }
+    if (option === correctAnswer) {
+      handleCorrectCount();
+      toast.success("Correct!")
     }
-
-
+    else {
+      toast.error("Incorrect!")
+    }
   }
-
-  console.log(answered);
 
 
   return (
@@ -42,7 +30,7 @@ const QuizGrid = ({ props, queNo }) => {
       <span>Que {queNo}:</span>
       <h3 className='text-xl font-semibold text-indigo-800 mb-5'>{question}</h3>
 
-      <span className='absolute top-2 right-0' onClick={() => hintFunctionality()}>
+      <span className='absolute top-2 right-0' onClick={() => setHint(!hint)}>
         <FontAwesomeIcon icon={faEye}></FontAwesomeIcon>
       </span>
 
@@ -53,7 +41,7 @@ const QuizGrid = ({ props, queNo }) => {
           queId={id}
           option={option}
           handleQuizCorrect={handleQuizCorrect}
-          correctAnswer={correctAnswer}
+          isAnswered={isAnswered}
         ></QuizOptions>)}
       </div>
 
