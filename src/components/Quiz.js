@@ -17,11 +17,11 @@ const Quiz = () => {
       <div className='px-20 py-10'>
         {
           !start &&
-          <div>
-            <img src={logo} alt="" />
-            <h2>{name}</h2>
-            <p>Total Question: {total}</p>
-            <button onClick={() => setStart(!start)}>Click Me</button>
+          <div className='min-h-screen'>
+            <img src={logo} alt="" className='w-14 bg-indigo-800 rounded' />
+            <h2 className='text-4xl font-semibold mt-3'>{name}</h2>
+            <p className=''>Total Question: {total}</p>
+            <button onClick={() => setStart(!start)} className='py-2 px-5 bg-indigo-800 rounded text-white' style={{ marginTop: '50px' }}>Click Me</button>
           </div>
         }
         {

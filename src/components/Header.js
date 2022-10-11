@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <header id='header'>
       <div className='container mx-auto'>
-        <div className='flex justify-between items-center relative'>
+        <div className='flex justify-between items-center relative px-4'>
           <Link to='/' className='site-title'><p className='text-2xl font-bold text-indigo-700'>DevQuiz</p></Link>
           <div onClick={() => setToggle(!toggle)} className='md:hidden'>
             <FontAwesomeIcon icon={toggle ? faXmark : faBars}></FontAwesomeIcon>
