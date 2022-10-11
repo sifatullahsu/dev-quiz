@@ -13,7 +13,7 @@ const TopicGrid = ({ props }) => {
           <p>Question: {total}</p>
         </div>
         <div>
-          <Link to={`./quiz/${id}`}><button>Start Quiz</button></Link>
+          <Link to={`/quiz/${id}`}><button>Start Quiz</button></Link>
         </div>
       </div>
     </div>

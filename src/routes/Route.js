@@ -19,7 +19,8 @@ export const route = createBrowserRouter([
       },
       {
         path: 'topics',
-        element: <div>Topics</div>,
+        element: <Topics></Topics>,
+        loader: () => getQuizTopic()
       },
       {
         path: 'quiz/:id',
@@ -28,7 +29,7 @@ export const route = createBrowserRouter([
       },
       {
         path: 'blog',
-        element: <Topics></Topics>
+        element: <div>Blog</div>
       },
       {
         path: '*',

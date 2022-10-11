@@ -8,7 +8,6 @@ import QuizOptions from './QuizOptions';
 const QuizGrid = ({ props, queNo }) => {
   const { id, question, options, correctAnswer } = props;
   const [hint, setHint] = useState(false);
-  const [answered, setAnswered] = useState({});
 
   const hintFunctionality = () => {
     if (!hint) {
@@ -16,26 +15,6 @@ const QuizGrid = ({ props, queNo }) => {
     }
   }
 
-  const handleQuizCorrect = (queID, answer, index) => {
-    const newAnswered = structuredClone(answered);
-    const isAnswered = newAnswered[queID];
-
-    if (!isAnswered) {
-      if (answer === correctAnswer) {
-        toast("Correct")
-      }
-      else {
-        toast("Incorrect")
-      }
-
-      newAnswered[queID] = index;
-    }
-    else {
-      toast("You already answred this question")
-    }
-
-    setAnswered(newAnswered);
-  }
 
 
   return (
@@ -50,10 +29,9 @@ const QuizGrid = ({ props, queNo }) => {
       <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
         {options.map((item, index) => <QuizOptions
           key={index}
-          props={item}
           queId={id}
-          index={index}
-          handleQuizCorrect={handleQuizCorrect}
+          option={item}
+          correctAnswer={correctAnswer}
         ></QuizOptions>)}
       </div>
 

@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const QuizOptions = ({ props, queId, index, handleQuizCorrect }) => {
+const QuizOptions = ({ queId, option, correctAnswer }) => {
+  console.log(queId, option, correctAnswer);
+
+  const [answered, setAnswered] = useState({});
+
+  const handleQuizCorrect = (option) => {
+
+  }
 
   return (
-
-    <div onClick={() => handleQuizCorrect(queId, props, index)} className='que-options'>
-      <div>
-        {props}
-      </div>
+    <div onClick={() => handleQuizCorrect(option)} className='que-options'>
+      {option}
     </div>
-
-
   );
 };
 
