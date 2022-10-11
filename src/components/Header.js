@@ -1,10 +1,26 @@
-import React from 'react';
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 const Header = () => {
+  const [toggle, setToggle] = useState(false);
+
   return (
-    <div>
-      <h1>Header</h1>
-    </div>
+    <header id='header'>
+      <div className='container mx-auto'>
+        <div className='flex justify-between items-center relative'>
+          <Link to='/' className='site-title'><p className='text-2xl font-bold text-indigo-700'>DevQuiz</p></Link>
+          <div onClick={() => setToggle(!toggle)} className='md:hidden'>
+            <FontAwesomeIcon icon={toggle ? faXmark : faBars}></FontAwesomeIcon>
+          </div>
+          <nav className={`toggle ${toggle ? 'toggle-true' : 'toggle-false'}`}>
+            <NavLink to='/topics'>Topics</NavLink>
+            <NavLink to='/blog'>Blog</NavLink>
+          </nav>
+        </div>
+      </div>
+    </header>
   );
 };
 
