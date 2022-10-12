@@ -5,7 +5,7 @@ import TopicGrid from './TopicGrid';
 
 const Home = () => {
   const topics = useLoaderData();
-  const { status, data } = topics;
+  const { data } = topics;
 
 
   return (
