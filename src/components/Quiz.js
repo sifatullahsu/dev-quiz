@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { getQuizResultsLS, setQuizResultsLS } from '../loader/quizResultsLS';
+import Error from './Error';
 import QuizGrid from './QuizGrid';
 import QuizSidebar from './QuizSidebar';
 
@@ -30,6 +31,12 @@ const Quiz = () => {
 
     setStart(!start);
     setCorrectCount(0);
+  }
+
+  if (!quiz.status) {
+    return (
+      <Error></Error>
+    );
   }
 
   return (

@@ -13,6 +13,7 @@ export const route = createBrowserRouter([
   {
     path: '/',
     element: <Main></Main>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: '/',
@@ -39,7 +40,7 @@ export const route = createBrowserRouter([
         element: <Blog></Blog>
       },
       {
-        path: '*',
+        path: '/*',
         element: <Error></Error>
       }
     ]
