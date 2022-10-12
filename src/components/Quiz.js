@@ -37,12 +37,12 @@ const Quiz = () => {
       <div className='quiz-page-sidebar bg-gray-300' style={{ backgroundColor: '#232937' }}>
         <QuizSidebar props={previousResult} setPreviousResult={setPreviousResult}></QuizSidebar>
       </div>
-      <div className='quiz-page-main px-10 lg:px-20 py-10'>
+      <div className='quiz-page-main px-5 pt-1 pb-10 lg:px-20 lg:py-10'>
         {
           !start &&
-          <div className=''>
+          <div className='py-5'>
             <img src={logo} alt="" className='w-14 bg-indigo-800 rounded' />
-            <h2 className='text-4xl font-semibold mt-3'>{name}</h2>
+            <h2 className='text-2xl lg:text-4xl font-semibold mt-3'>{name}</h2>
             <p>Total Question: {total}</p>
             <button
               onClick={() => setStart(!start)}
@@ -55,7 +55,7 @@ const Quiz = () => {
           start &&
           <div>
             <div className='sticky top-0 py-3 bg-white z-10 border-b-2 border-solid border-gray-300'>
-              <h2 className='text-4xl font-semibold'>Quiz of {name}</h2>
+              <h2 className='text-2xl md:text-4xl font-semibold'>Quiz of {name}</h2>
               <p className='pt-2'>Correct Answer {correctCount}</p>
             </div>
             {

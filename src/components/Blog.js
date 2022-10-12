@@ -3,7 +3,7 @@ import React from 'react';
 const Blog = () => {
   return (
     <section>
-      <div className='mx-auto py-14 px-3' style={{ maxWidth: '768px' }}>
+      <div className='mx-auto py-5 lg:py-14 px-3' style={{ maxWidth: '768px' }}>
         <div className='py-5'>
           <h2 className='text-xl font-semibold mb-2'>What is the purpose of the React Router?</h2>
           <p>ReactJS Router is mainly used for developing Single Page Web Applications. React Router is used to define multiple routes in the application. When a user types a specific URL into the browser, and if this URL path matches any 'route' inside the router file, the user will be redirected to that particular route. In easy way, React Router is a standard library for routing in React. It enables the navigation among views of various components in a React Application</p>

@@ -11,7 +11,7 @@ const Topics = () => {
     <section className='py-14'>
       <div className='container mx-auto'>
         <div className='text-center'>
-          <h2 className='text-3xl font-semibold mb-3 text-indigo-800'>Test Your Professional Skills</h2>
+          <h2 className='text-2xl lg:text-3xl font-semibold mb-3 text-indigo-800'>Test Your Professional Skills</h2>
           <p className='mb-12'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum, alias?</p>
 
         </div>

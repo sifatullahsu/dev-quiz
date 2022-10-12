@@ -6,10 +6,10 @@ const Statistics = () => {
   const topicsData = useLoaderData().data;
 
   return (
-    <section id='statistics' className='py-14'>
+    <section id='statistics' className='py-5 lg:py-14'>
       <div className='container mx-auto'>
         <div className='text-center p-4'>
-          <h2 className='text-3xl font-semibold mb-3 text-indigo-800'>Statistics Report</h2>
+          <h2 className='text-2xl lg:text-3xl font-semibold mb-3 text-indigo-800'>Statistics Report</h2>
           <p className='mb-12'>This is our all topics quiz total satistics report in a chart</p>
         </div>
       </div>

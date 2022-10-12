@@ -40,7 +40,7 @@ const QuizSidebar = ({ props, setPreviousResult }) => {
   return (
     <div className='sidebar text-white p-5' >
       <div>
-        <h3 className='text-2xl font-semibold'>Previous Results:</h3>
+        <h3 className='text-lg lg:text-2xl font-semibold'>Previous Results:</h3>
         {
           results.length ? results.map((item, index) => {
             const { id, name, logo, total, correctCount } = item;
