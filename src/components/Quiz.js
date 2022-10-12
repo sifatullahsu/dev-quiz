@@ -33,14 +33,14 @@ const Quiz = () => {
   }
 
   return (
-    <div className='grid' style={{ gridTemplateColumns: '30% 70%' }}>
-      <div className='bg-gray-300' style={{ backgroundColor: '#232937' }}>
+    <section id='quiz-page'>
+      <div className='quiz-page-sidebar bg-gray-300' style={{ backgroundColor: '#232937' }}>
         <QuizSidebar props={previousResult} setPreviousResult={setPreviousResult}></QuizSidebar>
       </div>
-      <div className='px-20 py-10'>
+      <div className='quiz-page-main px-10 lg:px-20 py-10'>
         {
           !start &&
-          <div className='min-h-screen'>
+          <div className=''>
             <img src={logo} alt="" className='w-14 bg-indigo-800 rounded' />
             <h2 className='text-4xl font-semibold mt-3'>{name}</h2>
             <p>Total Question: {total}</p>
@@ -78,7 +78,7 @@ const Quiz = () => {
           </div>
         }
       </div>
-    </div>
+    </section>
   );
 };
 

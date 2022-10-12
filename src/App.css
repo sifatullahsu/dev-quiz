@@ -57,6 +57,20 @@ body {
   margin: 0 15px;
 }
 
+#quiz-page {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#quiz-page .quiz-page-sidebar {
+  flex: 0 0 30%;
+}
+
+#quiz-page .quiz-page-main {
+  flex: 0 0 70%;
+  min-height: 600px;
+}
+
 @media (max-width: 767px) {
   #header nav.toggle {
     position: absolute;
@@ -86,6 +100,19 @@ body {
     padding: 100px 30px;
     margin-top: 0;
     border-radius: 0 0 4px 4px;
+  }
+
+  #quiz-page {
+    flex-direction: column-reverse;
+  }
+
+  #quiz-page .quiz-page-sidebar {
+    flex: 0 0 100%;
+  }
+
+  #quiz-page .quiz-page-main {
+    flex: 0 0 100%;
+    min-height: 0;
   }
 }
 

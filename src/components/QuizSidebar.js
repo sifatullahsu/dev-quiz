@@ -52,10 +52,10 @@ const QuizSidebar = ({ props, setPreviousResult }) => {
                 </div>
                 <div style={{ flex: 'auto', padding: '5px' }}>
                   <p className='text-xl'>{name}</p>
-                  <div className='flex justify-between text-sm'>
+                  <div className='flex justify-between flex-wrap text-sm'>
                     <p>Total: {total}</p>
                     <p>Correct: {correctCount}</p>
-                    <p>Avg: {((100 * correctCount) / total).toFixed(2)}%</p>
+                    <p className='block lg:static'>Avg: {((100 * correctCount) / total).toFixed(2)}%</p>
                   </div>
                 </div>
               </div>
