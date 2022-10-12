@@ -27,12 +27,18 @@ const QuizGrid = ({ props, queNo, handleCorrectCount }) => {
 
   return (
     <div className='py-12 border-b border-gray-300 border-solid relative' >
-      <span>Que {queNo}:</span>
-      <h3 className='text-xl font-semibold text-indigo-800 mb-5'>{question}</h3>
+      <h3
+        className='text-lg md:text-xl text-indigo-800 mb-5'
+        dangerouslySetInnerHTML={{ __html: question }}
+      ></h3>
 
-      <span className='absolute top-2 right-0' onClick={() => setHint(!hint)}>
-        <FontAwesomeIcon icon={faEye}></FontAwesomeIcon>
-      </span>
+      <div className='absolute top-4 left-0' >
+        <span className='mr-4' style={{ color: '#7a7a7a', fontSize: '14px' }}>Que {queNo}:</span>
+        <span onClick={() => setHint(!hint)}>
+          <FontAwesomeIcon icon={faEye}></FontAwesomeIcon>
+        </span>
+      </div>
+
 
       <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
         {options.map((option, index) => <QuizOptions
@@ -47,8 +53,8 @@ const QuizGrid = ({ props, queNo, handleCorrectCount }) => {
 
       <ToastContainer />
       {hint &&
-        <div className='text-center pt-8'>
-          <p>{correctAnswer}</p>
+        <div className='text-center mt-8 bg-yellow-700 text-white p-3'>
+          <p><span className='font-bold'>Hint:</span> {correctAnswer}</p>
         </div>
       }
     </div>

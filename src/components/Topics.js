@@ -8,7 +8,7 @@ const Topics = () => {
 
 
   return (
-    <section className='py-14'>
+    <section className='py-14 custom-min-height'>
       <div className='container mx-auto'>
         <div className='text-center'>
           <h2 className='text-2xl lg:text-3xl font-semibold mb-3 text-indigo-800'>Test Your Professional Skills</h2>
