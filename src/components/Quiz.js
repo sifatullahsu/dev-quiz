@@ -48,7 +48,7 @@ const Quiz = () => {
               onClick={() => setStart(!start)}
               className='py-2 px-5 bg-indigo-800 rounded text-white'
               style={{ marginTop: '50px' }}
-            >Click Me</button>
+            >Start Quiz Test</button>
           </div>
         }
         {

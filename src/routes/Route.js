@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "../components/Blog";
+import Error from "../components/Error";
 import Home from "../components/Home";
 import Quiz from "../components/Quiz";
-import SingleTopic from "../components/Quiz";
+import Statistics from "../components/Statistics";
 import Topics from "../components/Topics";
 import Main from "../layouts/Main";
 import { getQuiz } from "../loader/getQuiz";
@@ -29,12 +30,17 @@ export const route = createBrowserRouter([
         loader: ({ params }) => getQuiz(params.id)
       },
       {
+        path: 'statistics',
+        element: <Statistics></Statistics>,
+        loader: () => getQuizTopic()
+      },
+      {
         path: 'blog',
         element: <Blog></Blog>
       },
       {
         path: '*',
-        element: <div>404 ERROR</div>
+        element: <Error></Error>
       }
     ]
   }

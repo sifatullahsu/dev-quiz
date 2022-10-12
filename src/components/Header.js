@@ -16,6 +16,7 @@ const Header = () => {
           </div>
           <nav className={`toggle ${toggle ? 'toggle-true' : 'toggle-false'}`}>
             <NavLink to='/topics'>Topics</NavLink>
+            <NavLink to='/statistics'>Statistics</NavLink>
             <NavLink to='/blog'>Blog</NavLink>
           </nav>
         </div>
