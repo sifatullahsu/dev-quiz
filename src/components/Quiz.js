@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { getQuizResultsLS, setQuizResultsLS } from '../loader/quizResultsLS';
 import QuizGrid from './QuizGrid';
+import QuizSidebar from './QuizSidebar';
 
 const Quiz = () => {
   const quiz = useLoaderData();
@@ -9,17 +11,31 @@ const Quiz = () => {
   const [start, setStart] = useState(false);
   const [correctCount, setCorrectCount] = useState(0);
 
+  const getResultsLS = getQuizResultsLS();
+  const [previousResult, setPreviousResult] = useState(getResultsLS);
+
+  let queNo = 0;
+
   const handleCorrectCount = () => {
     setCorrectCount(correctCount + 1);
   }
 
+  const handleFinishButton = () => {
+    const newPreviousResult = [...previousResult];
+    newPreviousResult.push({ id, correctCount });
 
-  let queNo = 0;
+    setPreviousResult(newPreviousResult);
+    setQuizResultsLS(newPreviousResult);
+
+
+    setStart(!start);
+    setCorrectCount(0);
+  }
 
   return (
     <div className='grid' style={{ gridTemplateColumns: '30% 70%' }}>
       <div className='bg-gray-300' style={{ backgroundColor: '#232937' }}>
-        sidebar
+        <QuizSidebar props={previousResult} setPreviousResult={setPreviousResult}></QuizSidebar>
       </div>
       <div className='px-20 py-10'>
         {
@@ -56,10 +72,7 @@ const Quiz = () => {
           start &&
           <div className='text-center pt-8'>
             <button
-              onClick={() => {
-                setStart(!start);
-                setCorrectCount(0);
-              }}
+              onClick={() => handleFinishButton()}
               className='py-2 px-5 bg-indigo-800 rounded text-white'
             >Finish</button>
           </div>
